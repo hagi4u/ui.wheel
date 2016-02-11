@@ -3,58 +3,60 @@
 
 <head>
   <meta charset="UTF-8">
-  <title>Mouse Wheel!!</title>  
+  <title>Mouse Wheel!!</title>
   <style>
-    #logger{
-      width:500px;
-      height:300px;
-      border:1px solid red;
-      overflow-y:auto;
-    }
-    #testScrollPane{
-      position:absolute;
-      top:0;
-      right:0;
-      width:500px;
-      height:300px;
-      background-color:#e0e0e0;
-      z-index:100;
-    }
-    #testScrollPane2{
-      position:absolute;
-      top:400px;
-      right:0;
-      width:500px;
-      height:300px;
-      background-color:#e0e0e0;
-      z-index:101;
-    }
+  #logger {
+    width: 500px;
+    height: 300px;
+    border: 1px solid red;
+    overflow-y: auto;
+  }
+  
+  #testScrollPane {
+    position: absolute;
+    top: 0;
+    right: 0;
+    width: 500px;
+    height: 300px;
+    background-color: #e0e0e0;
+    z-index: 100;
+  }
+  
+  #testScrollPane2 {
+    position: absolute;
+    top: 400px;
+    right: 0;
+    width: 500px;
+    height: 300px;
+    background-color: #e0e0e0;
+    z-index: 101;
+  }
   </style>
 </head>
 
 <body>
-  
   <div id="logger"></div>
   <div id="testScrollPane"></div>
   <div id="testScrollPane2"></div>
 
-  <script src="../bower_components/jquery/dist/jquery.min.js"></script>
+  <script src="//code.jquery.com/jquery-1.12.0.min.js"></script>
+  <script src="//code.jquery.com/jquery-migrate-1.2.1.min.js"></script>
   <script src="./js/mousewheel.js"></script>
   <script>
   var el = document.getElementById('testScrollPane');
   var el2 = document.getElementsByTagName('body')[0];
-  new MouseWheel(el, function(){
+  
+  new MouseWheel(el, function() {
     $('#logger').prepend('<p>위</p>');
-  },function(){
+  }, function() {
     $('#logger').prepend('<p>아래</p>');
   });
 
-  new MouseWheel(el2, function(){
+  new MouseWheel(el2, function() {
     $('#logger').prepend('<p>문서 위</p>');
-  },function(){
+  }, function() {
     $('#logger').prepend('<p>문서 아래</p>');
   });
-
   </script>
 </body>
 

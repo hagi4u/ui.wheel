@@ -24,12 +24,14 @@
    * @desc: 스크롤 이벤트 추가 후 콜백함수 실행
    */
   MouseWheel.prototype.eventCallback = function(ev, self) {
-    ev.preventDefault();
-    ev.stopPropagation();
+    if( !ev ) { ev = window.event; }
 
     var delta = 0;
 
-    if( !ev ) { ev = window.event; }
+    // # ( <= IE8 ) Support
+    ev.preventDefault ? ev.preventDefault() : (ev.returnValue = false);
+    ev.stopPropagation ? ev.stopPropagation() : (ev.cancelBubble = true);
+
     if( ev.wheelDelta ){  //  Internet Explorer & Opera
       delta = ev.wheelDelta / 60;
     } else if( ev.detail ){ // W3C Standards
