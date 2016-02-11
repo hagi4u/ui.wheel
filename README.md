@@ -3,6 +3,8 @@ Simple mousewheel event without jQuery
 
 ## Usage
 ```javascript
+var el = document.getElementById('pane');
+
 new MouseWheel(el, function() {
   // if scroll direction is up then execute callback function
 }, function() {
